@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database= 'fsp';
+$database= 'fsp_forum';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database, 3306);

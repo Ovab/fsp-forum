@@ -1,6 +1,18 @@
 <?php
 //signup.php
-include 'connect.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database= 'fsp_forum';
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database, 3306);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 include 'header.php';
 
 echo '<h3>Sign up</h3>';
@@ -10,11 +22,10 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
     echo '<form method="post" action="">
-        Username: <input type="text" name="user_name" />
-        Password: <input type="password" name="user_pass">
-        Password again: <input type="password" name="user_pass_check">
-        E-mail: <input type="email" name="user_email">
-        <input type="submit" value="Add category" />
+        Username: <input type="text" name="user_name" /><br>
+        Password: <input type="password" name="user_pass"><br>
+        Password again: <input type="password" name="user_pass_check"><br>
+        <input type="submit" value="Sign up" />
      </form>';
 }
 else
@@ -71,20 +82,18 @@ else
         //the form has been posted without, so save it
         //notice the use of mysql_real_escape_string, keep everything safe!
         //also notice the sha1 function which hashes the password
-        $sql = "INSERT INTO
-                    fsp(user_name, user_pass, user_email ,user_date, user_level)
-                VALUES('" . mysql_real_escape_string($_POST['user_name']) . "',
-                       '" . sha1($_POST['user_pass']) . "',
-                       '" . mysql_real_escape_string($_POST['user_email']) . "',
-                        NOW(),
-                        0)";
+        $sql = "INSERT INTO fsp_forum.users(username, password, date_created)
+                VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "',
+                       '" . $_POST['user_pass'] . "',
+                        NOW())";
 
-        $result = mysql_query($sql);
+        $result = mysqli_query($conn,$sql);
         if(!$result)
         {
+
             //something went wrong, display the error
             echo 'Something went wrong while registering. Please try again later.';
-            //echo mysql_error(); //debugging purposes, uncomment when needed
+            echo mysqli_error($conn); //debugging purposes, uncomment when needed
         }
         else
         {
