@@ -82,10 +82,7 @@ else
         //the form has been posted without, so save it
         //notice the use of mysql_real_escape_string, keep everything safe!
         //also notice the sha1 function which hashes the password
-        $sql = "INSERT INTO fsp_forum.users(username, password, date_created)
-                VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "',
-                       '" . $_POST['user_pass'] . "',
-                        NOW())";
+        $sql = "INSERT INTO users(username, password, date_created) VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "', '" . $_POST['user_pass'] . "', NOW())";
 
         $result = mysqli_query($conn,$sql);
         if(!$result)

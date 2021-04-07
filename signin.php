@@ -14,7 +14,6 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 include 'header.php';
-
 echo '<h3>Sign in</h3>';
 
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
@@ -87,6 +86,7 @@ else
                 }
                 else
                 {
+                    session_start();
                     //set the $_SESSION['signed_in'] variable to TRUE
                     $_SESSION['signed_in'] = true;
 
@@ -95,9 +95,12 @@ else
                     {
                         $_SESSION['user_id'] = $row['userID'];
                         $_SESSION['user_name']  = $row['username'];
+                        print_r($_SESSION);
                     }
 
-                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="index.php">Proceed to the forum overview</a>.';
+                    echo 'Welcome, ' . $_SESSION['user_name'] . '</a>.';
+                    //header('location: index.php');
+                    exit();
                 }
             }
         }

@@ -1,17 +1,18 @@
 <?php
+session_start();
 //create_cat.php
 include 'connect.php';
 include 'header.php';
 
 $sql = "SELECT
-			topic_id,
-			topic_subject
+			fsp_forum.topics.idtopics,
+			fsp_forum.topics.Topic_subject
 		FROM
-			topics
+			fsp_forum.topics
 		WHERE
-			topics.topic_id = " . mysql_real_escape_string($_GET['id']);
+			topics.idtopics = " . mysqli_real_escape_string($conn,$_GET['id']);
 			
-$result = mysql_query($sql);
+$result = mysqli_query($conn, $sql);
 
 if(!$result)
 {
@@ -19,19 +20,21 @@ if(!$result)
 }
 else
 {
-	if(mysql_num_rows($result) == 0)
+	if(mysqli_num_rows($result) == 0)
 	{
 		echo 'This topic doesn&prime;t exist.';
 	}
 	else
 	{
-		while($row = mysql_fetch_assoc($result))
+		while($row = mysqli_fetch_assoc($result))
 		{
 			//display post data
+            /*
 			echo '<table class="topic" border="1">
 					<tr>
 						<th colspan="2">' . $row['topic_subject'] . '</th>
 					</tr>';
+            */
 		
 			//fetch the posts from the database
 			$posts_sql = "SELECT
@@ -39,18 +42,18 @@ else
 						posts.post_content,
 						posts.post_date,
 						posts.post_by,
-						users.user_id,
-						users.user_name
+						users.userID,
+						users.username
 					FROM
 						posts
 					LEFT JOIN
 						users
 					ON
-						posts.post_by = users.user_id
+						posts.post_by = users.userID
 					WHERE
-						posts.post_topic = " . mysql_real_escape_string($_GET['id']);
+						posts.post_topic = " . mysqli_real_escape_string($conn,$_GET['id']);
 						
-			$posts_result = mysql_query($posts_sql);
+			$posts_result = mysqli_query($conn, $posts_sql);
 			
 			if(!$posts_result)
 			{
@@ -59,10 +62,10 @@ else
 			else
 			{
 			
-				while($posts_row = mysql_fetch_assoc($posts_result))
+				while($posts_row = mysqli_fetch_assoc($posts_result))
 				{
 					echo '<tr class="topic-post">
-							<td class="user-post">' . $posts_row['user_name'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
+							<td class="user-post">' . $posts_row['username'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
 							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . '</td>
 						  </tr>';
 				}
@@ -76,7 +79,7 @@ else
 			{
 				//show reply box
 				echo '<tr><td colspan="2"><h2>Reply:</h2><br />
-					<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
+					<form method="post" action="reply.php?id=' . $row['idtopics'] . '">
 						<textarea name="reply-content"></textarea><br /><br />
 						<input type="submit" value="Submit reply" />
 					</form></td></tr>';

@@ -2,7 +2,7 @@
 //signout.php
 include 'connect.php';
 include 'header.php';
-
+session_start();
 echo '<h2>Sign out</h2>';
 
 //check if user if signed in

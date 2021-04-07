@@ -24,8 +24,9 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 else
 {
 	//the form has been posted, so save it
-	$sql = "INSERT INTO fsp_forum.catagory(cat_name) 
-    VALUES(" . mysqli_real_escape_string($conn, $_POST['cat_name']) . "";
+	$sql = "INSERT INTO catagory(cat_id, cat_name) 
+    VALUES(cat_id+1,
+           " . mysqli_real_escape_string($conn, $_POST['cat_name']) . "";
     $result = mysqli_query($conn, $sql);
     if(!$result)
     {

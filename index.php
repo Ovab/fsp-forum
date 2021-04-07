@@ -3,6 +3,7 @@
 include 'connect.php';
 include 'header.php';
 session_start();
+print_r($_SESSION);
 $sql = "SELECT
 			fsp_forum.catagory.cat_id,
 			fsp_forum.catagory.cat_name,
@@ -47,14 +48,14 @@ else
 				
 				//fetch last topic for each cat
 					$topicsql = "SELECT
-									fsp_forum.topics.idtopics,
-									fsp_forum.topics.Topic_subject,
-									fsp_forum.topics.topic_date,
-									fsp_forum.topics.Catagory_cat_id
+									topics.idtopics,
+									topics.Topic_subject,
+									topics.topic_date,
+									topics.Catagory_cat_id
 								FROM
-									fsp_forum.topics
+									topics
 								WHERE
-									fsp_forum.topics.Catagory_cat_id = " . $row['cat_id'] . "
+									topics.Catagory_cat_id = " . $row['cat_id'] . "
 								ORDER BY
 									topic_date
 								DESC
