@@ -26,30 +26,24 @@ else
 
 		$result = mysqli_query($conn, $sql);
 
-		if(!$result)
-		// {
+		if(!$result) {
 			//the query failed, uh-oh :-(
 			echo 'Error while selecting from database. Please try again later.';
 		}
-		else
-		{
-			if(mysqli_num_rows($result) == 0)
-			{
+		else {
+			if(mysqli_num_rows($result) == 0) {
 				//there are no categories, so a topic can't be posted
-				if($_SESSION['user_level'] == 1)
-				{
+				if($_SESSION['user_level'] == 1) {
 					echo 'You have not created categories yet.';
 				}
-				else
-				{
+				else {
 					echo 'Before you can post a topic, you must wait for an admin to create some categories.';
 				}
 			}
-			else
-			{
+			else {
 
-				echo '<form method="post" action="">
-					Subject: <input type="text" name="topic_subject" /><br />
+				echo '<form method="POST" action="">
+					Subject: <input type="text" name="topic_subj" /><br />
 					Category:';
 
 				echo '<select name="topic_cat">';
@@ -64,13 +58,13 @@ else
 				 </form>';
 			}
 		}
+		}
+    else{
+        //start the transaction
+        $query  = "BEGIN WORK;";
+        $result = mysqli_query($conn, $query);
+    }
 	}
-	else
-	{
-		//start the transaction
-		$query  = "BEGIN WORK;";
-		$result = mysqli_query($conn, $query);
-
 		if(!$result)
 		{
 			//Damn! the query failed, quit
@@ -78,7 +72,7 @@ else
 		}
 		else
 		{
-
+        print_r($_SESSION);
 			//the form has been posted, so save it
 			//insert the topic into the topics table first, then we'll save the post into the posts table
 			$sql = "INSERT INTO 
@@ -86,11 +80,9 @@ else
 							   topic_date,
 							   Catagory_cat_id,
 							   users_userID)
-				   VALUES('" . mysqli_real_escape_string($conn, $_POST['topic_subject']) . "',
-							   NOW(),
+				   VALUES('" . mysqli_real_escape_string($conn, $_POST['topic_subj']) . "', NOW(),
 							   " . mysqli_real_escape_string($conn, $_POST['topic_cat']) . ",
-							   " . $_SESSION['user_id'] . "
-							   )";
+							   " . $_SESSION['user_id'] . ")";
 
 			$result = mysqli_query($conn, $sql);
 			if(!$result)
@@ -135,7 +127,6 @@ else
 					echo 'You have succesfully created <a href="topic.php?id='. $topicid . '">your new topic</a>.';
 				}
 			}
-}
 }
 
 include 'footer.php';

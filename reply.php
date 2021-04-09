@@ -33,6 +33,7 @@ else
 						
 		if(!$result)
 		{
+		    echo mysqli_error($conn);
 			echo 'Your reply has not been saved, please try again later.';
 		}
 		else
@@ -43,4 +44,3 @@ else
 }
 
 include 'footer.php';
-?>

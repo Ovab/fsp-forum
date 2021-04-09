@@ -3,14 +3,21 @@
 include 'connect.php';
 include 'header.php';
 
-//first select the category based on $_GET['cat_id']
-$sql = "SELECT fsp_forum.catagory.cat_id, fsp_forum.catagory.cat_name FROM fsp_forum.catagory WHERE cat_id = " . mysqli_real_escape_string($conn,$_GET['id']);
+//first select the category based on $_POST['cat_id']
+$id = urldecode($row['cat_id']);
+/*
+$sql = "SELECT cat_id, cat_name FROM catagory
+		WHERE cat_id = ". mysqli_real_escape_string($conn,$id);
+*/
+$stmt = mysqli_prepare($conn,"SELECT cat_id, cat_name FROM catagory WHERE cat_id =?");
+$stmt->bind_param("s", $id);
+$stmt->execute();
 
-$result = mysqli_query($conn,$sql);
+$result = $stmt->get_result();
 
 if(!$result)
 {
-	echo 'The category could not be displayed, please try again later.' . mysqli_error($conn);
+	echo 'The category could not be displayed, please try again later. <br>' . mysqli_error($conn);
 }
 else
 {
@@ -62,7 +69,7 @@ else
 				{				
 					echo '<tr>';
 						echo '<td class="leftpart">';
-							echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><br /><h3>';
+							echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['Topic_subject'] .'</a><br /><h3>';
 						echo '</td>';
 						echo '<td class="rightpart">';
 							echo date('d-m-Y', strtotime($row['topic_date']));

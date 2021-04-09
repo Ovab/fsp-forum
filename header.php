@@ -17,7 +17,4 @@
         <a class="item" href="create_topic.php">Create a topic</a> -
         <a class="item" href="create_cat.php">Create a category</a>
         <a class="item" href="signout.php">Sign out</a>
-        <div id="userbar">
-            <div id="userbar">Hello Example. Not you? Log out.</div>
-        </div>
         <div id="content">

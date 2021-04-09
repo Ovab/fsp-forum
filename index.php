@@ -42,7 +42,8 @@ else
 		{				
 			echo '<tr>';
 				echo '<td class="leftpart">';
-					echo '<h3><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] . '</a></h3>';
+				$_SESSION['cat_id'.$row[cat_id]]=$row['cat_id'];
+					echo '<h3><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] ;'</a></h3>';
 				echo '</td>';
 				echo '<td class="rightpart">';
 				
@@ -77,7 +78,7 @@ else
 						else
 						{
 							while($topicrow = mysqli_fetch_assoc($topicsresult))
-							echo '<a href="topic.php?id=' . $topicrow['topic_id'] . '">' . $topicrow['topic_subject'] . '</a> at ' . date('d-m-Y', strtotime($topicrow['topic_date']));
+							echo '<a href="topic.php?id=' . $topicrow['idtopics'] . '">' . $topicrow['Topic_subject'] . '</a> at ' . date('d-m-Y', strtotime($topicrow['topic_date']));
 						}
 					}
 				echo '</td>';
