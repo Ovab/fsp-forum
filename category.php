@@ -4,7 +4,7 @@ include 'connect.php';
 include 'header.php';
 
 //first select the category based on $_POST['cat_id']
-$id = urldecode($row['cat_id']);
+$id = ($_GET['id']);
 /*
 $sql = "SELECT cat_id, cat_name FROM catagory
 		WHERE cat_id = ". mysqli_real_escape_string($conn,$id);
@@ -35,10 +35,11 @@ else
 	
 		//do a query for the topics
 		$sql = "SELECT	
-					topics.users_userID,
-					topics.Topic_subject,
-					topics.topic_date,
-					topics.Catagory_cat_id
+                    Topic_id,
+					users_userID,
+					Topic_subject,
+					topic_date,
+					Catagory_cat_id
 				FROM
 					topics
 				WHERE
@@ -59,7 +60,7 @@ else
 			else
 			{
 				//prepare the table
-				echo '<table border="1">
+				echo '<table>
 					  <tr>
 						<th>Topic</th>
 						<th>Created at</th>
@@ -69,7 +70,7 @@ else
 				{				
 					echo '<tr>';
 						echo '<td class="leftpart">';
-							echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['Topic_subject'] .'</a><br /><h3>';
+							echo '<h3><a href="topic.php?id=' . $row['Topic_id'] . '">' . $row['Topic_subject'] .'</a><br /><h3>';
 						echo '</td>';
 						echo '<td class="rightpart">';
 							echo date('d-m-Y', strtotime($row['topic_date']));
@@ -82,4 +83,3 @@ else
 }
 
 include 'footer.php';
-?>

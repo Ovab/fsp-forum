@@ -3,17 +3,16 @@
 include 'connect.php';
 include 'header.php';
 session_start();
-print_r($_SESSION);
 $sql = "SELECT
 			fsp_forum.catagory.cat_id,
 			fsp_forum.catagory.cat_name,
-			COUNT(fsp_forum.topics.idtopics) AS topics
+			COUNT(fsp_forum.topics.Topic_id) AS topics
 		FROM
 			fsp_forum.catagory
 		LEFT JOIN
 			fsp_forum.topics
 		ON
-			topics.idtopics = catagory.cat_id
+			topics.Topic_id = catagory.cat_id
 		GROUP BY
 			catagory.cat_name, catagory.cat_id";
 
@@ -42,14 +41,14 @@ else
 		{				
 			echo '<tr>';
 				echo '<td class="leftpart">';
-				$_SESSION['cat_id'.$row[cat_id]]=$row['cat_id'];
+				$_SESSION['cat_id'.$row['cat_id']]=$row['cat_id'];
 					echo '<h3><a href="category.php?id=' . $row['cat_id'] . '">' . $row['cat_name'] ;'</a></h3>';
 				echo '</td>';
 				echo '<td class="rightpart">';
 				
 				//fetch last topic for each cat
 					$topicsql = "SELECT
-									topics.idtopics,
+									topics.Topic_id,
 									topics.Topic_subject,
 									topics.topic_date,
 									topics.Catagory_cat_id
@@ -78,7 +77,7 @@ else
 						else
 						{
 							while($topicrow = mysqli_fetch_assoc($topicsresult))
-							echo '<a href="topic.php?id=' . $topicrow['idtopics'] . '">' . $topicrow['Topic_subject'] . '</a> at ' . date('d-m-Y', strtotime($topicrow['topic_date']));
+							echo '<a href="topic.php?id=' . $topicrow['Topic_id'] . '">' . $topicrow['Topic_subject'] . '</a> at ' . date('d-m-Y', strtotime($topicrow['topic_date']));
 						}
 					}
 				echo '</td>';

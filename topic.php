@@ -5,12 +5,12 @@ include 'connect.php';
 include 'header.php';
 
 $sql = "SELECT
-			fsp_forum.topics.idtopics,
+			fsp_forum.topics.Topic_id,
 			fsp_forum.topics.Topic_subject
 		FROM
 			fsp_forum.topics
 		WHERE
-			topics.idtopics = " . mysqli_real_escape_string($conn,$_GET['id']);
+			Topic_id = " . mysqli_real_escape_string($conn,$_GET['id']);
 			
 $result = mysqli_query($conn, $sql);
 
@@ -65,8 +65,8 @@ else
 				while($posts_row = mysqli_fetch_assoc($posts_result))
 				{
 					echo '<tr class="topic-post">
-							<td class="user-post">' . $posts_row['username'] . '<br/>' . date('d-m-Y H:i', strtotime($posts_row['post_date'])) . '</td>
-							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . '</td>
+							<td class="user-post">' . $posts_row['username']." said: " . date('d-m-Y H:i', strtotime($posts_row['post_date'])) .'</td>
+							<td class="post-content">' . htmlentities(stripslashes($posts_row['post_content'])) . "<br>"."<br>".'</td>
 						  </tr>';
 				}
 			}
@@ -79,7 +79,7 @@ else
 			{
 				//show reply box
 				echo '<tr><td colspan="2"><h2>Reply:</h2><br />
-					<form method="post" action="reply.php?id=' . $row['idtopics'] . '">
+					<form method="post" action="reply.php?id=' . $row['Topic_id'] . '">
 						<textarea name="reply-content"></textarea><br /><br />
 						<input type="submit" value="Submit reply" />
 					</form></td></tr>';

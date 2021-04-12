@@ -30,23 +30,13 @@ else
 			//the query failed, uh-oh :-(
 			echo 'Error while selecting from database. Please try again later.';
 		}
-		else {
-			if(mysqli_num_rows($result) == 0) {
-				//there are no categories, so a topic can't be posted
-				if($_SESSION['user_level'] == 1) {
-					echo 'You have not created categories yet.';
-				}
-				else {
-					echo 'Before you can post a topic, you must wait for an admin to create some categories.';
-				}
-			}
 			else {
 
 				echo '<form method="POST" action="">
-					Subject: <input type="text" name="topic_subj" /><br />
+					Subject: <input type="text" name="topic_subject" /><br />
 					Category:';
 
-				echo '<select name="topic_cat">';
+				echo '<select name="topic_catagory">';
 					while($row = mysqli_fetch_assoc($result))
 					{
 						echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
@@ -58,8 +48,8 @@ else
 				 </form>';
 			}
 		}
-		}
     else{
+    	print_r($_POST);
         //start the transaction
         $query  = "BEGIN WORK;";
         $result = mysqli_query($conn, $query);
@@ -67,7 +57,7 @@ else
 	}
 		if(!$result)
 		{
-			//Damn! the query failed, quit
+			//the query failed, quit
 			echo 'An error occured while creating your topic. Please try again later.';
 		}
 		else
@@ -80,8 +70,8 @@ else
 							   topic_date,
 							   Catagory_cat_id,
 							   users_userID)
-				   VALUES('" . mysqli_real_escape_string($conn, $_POST['topic_subj']) . "', NOW(),
-							   " . mysqli_real_escape_string($conn, $_POST['topic_cat']) . ",
+				   VALUES('" . mysqli_real_escape_string($conn, $_POST['topic_subject']) . "', NOW(),
+							   " . mysqli_real_escape_string($conn, $_POST['topic_catagory']) . ",
 							   " . $_SESSION['user_id'] . ")";
 
 			$result = mysqli_query($conn, $sql);
