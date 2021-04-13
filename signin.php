@@ -86,7 +86,6 @@ else
                 }
                 else
                 {
-                    session_start();
                     //set the $_SESSION['signed_in'] variable to TRUE
                     $_SESSION['signed_in'] = true;
 

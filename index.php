@@ -2,7 +2,6 @@
 //create_cat.php
 include 'connect.php';
 include 'header.php';
-session_start();
 $sql = "SELECT
 			fsp_forum.catagory.cat_id,
 			fsp_forum.catagory.cat_name,
