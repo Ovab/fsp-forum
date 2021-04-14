@@ -1,18 +1,6 @@
 <?php
 //signin.php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database= 'fsp_forum';
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database, 3306);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+include 'connect.php';
 include 'header.php';
 echo '<h3>Sign in</h3>';
 
@@ -95,6 +83,7 @@ else
                         $_SESSION['user_id'] = $row['userID'];
                         $_SESSION['user_name']  = $row['username'];
                         print_r($_SESSION);
+                        header('location: index.php');
                     }
 
                     echo 'Welcome, ' . $_SESSION['user_name'] . '</a>.';

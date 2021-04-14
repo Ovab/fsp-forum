@@ -60,7 +60,7 @@ else
 			else
 			{
 				//prepare the table
-				echo '<table>
+				echo '<table border="1">
 					  <tr>
 						<th>Topic</th>
 						<th>Created at</th>

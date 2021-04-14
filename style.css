@@ -1,35 +1,33 @@
-/* BEGIN BASIC FORUM STYLES */
 body {
-	background-color: #4E4E4E;
-	text-align: center;			/* make sure IE centers the page too */
+	background-color: #414141;
+	text-align: center;         /* make sure IE centers the page too */
 }
 
 #wrapper {
 	width: 900px;
-	margin: 0 auto; 			/* center the page */
+	margin: 0 auto;             /* center the page */
 }
 
 #content {
 	background-color: #fff;
 	border: 1px solid #000;
-	float: left;
-	font-family: Arial;
+	font-family: "Comic Sans MS", sans-serif;
 	padding: 20px 30px;
 	text-align: left;
-	width: 100%;				/* fill up the entire div */
+	width: 100%;                /* fill up the entire div */
 }
 
 #menu {
-float: left;
-border: 1px solid #000;
-border-bottom: none;		/* avoid a double border */
-clear: both;				/* clear:both makes sure the content div doesn't float next to this one but stays under it */
-width:100%;
-height:20px;
-padding: 0 30px;
-background-color: #FFF;
-text-align: left;
-font-size: 85%;
+	float: left;
+	border: 1px solid #000;
+	border-bottom: none;        /* avoid a double border */
+	clear: both;                /* clear:both makes sure the content div doesn't float next to this one but stays under it */
+	width:100%;
+	height:20px;
+	padding: 0 30px;
+	background-color: #FFF;
+	text-align: left;
+	font-size: 85%;
 }
 
 #menu a:hover {
@@ -62,7 +60,7 @@ table a:hover {
 }
 
 th {
-	background-color: #B40E1F;
+	background-color: #79EC80;
 	color: #F0F0F0;
 }
 
@@ -72,7 +70,7 @@ td {
 
 /* Begin font styles */
 h1, #footer {
-	font-family: Arial;
+	font-family: "Comic Sans MS", sans-serif;
 	color: #F1F3F1;
 }
 
@@ -83,7 +81,7 @@ h3 {margin: 0; padding: 0;}
 	background-color: #00728B;
 	border: 1px solid #032472;
 	color: #FFF;
-	font-family: Arial;
+	font-family: "Comic Sans MS", sans-serif;
 	padding: 3px;
 	text-decoration: none;
 }
@@ -118,3 +116,17 @@ textarea {
 	width: 500px;
 	height: 200px;
 }
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+	grid-template-rows: 0.5fr 2fr 1fr;
+	gap: 0 0;
+	grid-template-areas:
+    "Logo . . Login"
+    ". Catagories Catagories ."
+    ". . . .";
+}
+.Catagories { grid-area: Catagories; background-color: #79EC80; border-radius: 25px}
+img {background-color: #4E4E4E; border-radius: 25px}
+.Login { grid-area: Login; }
+.Logo { grid-area: Logo; }

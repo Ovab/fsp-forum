@@ -19,8 +19,7 @@ else
 		//retrieve the categories from the database for use in the dropdown
 		$sql = "SELECT
 					cat_id,
-					cat_name,
-					cat_desc
+					cat_name
 				FROM
 					catagory";
 
@@ -49,7 +48,6 @@ else
 			}
 		}
     else{
-    	print_r($_POST);
         //start the transaction
         $query  = "BEGIN WORK;";
         $result = mysqli_query($conn, $query);
@@ -62,7 +60,6 @@ else
 		}
 		else
 		{
-        print_r($_SESSION);
 			//the form has been posted, so save it
 			//insert the topic into the topics table first, then we'll save the post into the posts table
 			$sql = "INSERT INTO 

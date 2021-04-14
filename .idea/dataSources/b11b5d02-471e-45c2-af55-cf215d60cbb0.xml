@@ -777,144 +777,139 @@ SELECT|sys.sys_config:null
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="242" parent="235" name="cat_desc">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="243" parent="235" name="PRIMARY">
+    <key id="242" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cat_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="244" parent="236" name="post_id">
+    <column id="243" parent="236" name="post_id">
       <Position>1</Position>
       <DataType>int(8)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="245" parent="236" name="post_content">
+    <column id="244" parent="236" name="post_content">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="246" parent="236" name="post_date">
+    <column id="245" parent="236" name="post_date">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="247" parent="236" name="post_topic">
+    <column id="246" parent="236" name="post_topic">
       <Position>4</Position>
       <DataType>int(8)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="248" parent="236" name="post_by">
+    <column id="247" parent="236" name="post_by">
       <Position>5</Position>
       <DataType>int(8)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="249" parent="236" name="PRIMARY">
+    <key id="248" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>post_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="250" parent="237" name="idReplies">
+    <column id="249" parent="237" name="idReplies">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="251" parent="237" name="reply_content">
+    <column id="250" parent="237" name="reply_content">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="252" parent="237" name="reply_date">
+    <column id="251" parent="237" name="reply_date">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="253" parent="237" name="topics_idtopics">
+    <column id="252" parent="237" name="topics_idtopics">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="254" parent="237" name="users_userID">
+    <column id="253" parent="237" name="users_userID">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="255" parent="237" name="fk_Replies_topics1">
+    <index id="254" parent="237" name="fk_Replies_topics1">
       <ColNames>topics_idtopics</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="256" parent="237" name="fk_Replies_users1">
+    <index id="255" parent="237" name="fk_Replies_users1">
       <ColNames>users_userID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="257" parent="237" name="PRIMARY">
+    <key id="256" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idReplies</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="238" name="Topic_id">
+    <column id="257" parent="238" name="Topic_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="259" parent="238" name="Topic_subject">
+    <column id="258" parent="238" name="Topic_subject">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
     </column>
-    <column id="260" parent="238" name="topic_date">
+    <column id="259" parent="238" name="topic_date">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="261" parent="238" name="users_userID">
+    <column id="260" parent="238" name="users_userID">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="262" parent="238" name="Catagory_cat_id">
+    <column id="261" parent="238" name="Catagory_cat_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <index id="263" parent="238" name="fk_topics_users">
+    <index id="262" parent="238" name="fk_topics_users">
       <ColNames>users_userID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="264" parent="238" name="fk_topics_Catagory1">
+    <index id="263" parent="238" name="fk_topics_Catagory1">
       <ColNames>Catagory_cat_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="265" parent="238" name="PRIMARY">
+    <key id="264" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Topic_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="266" parent="239" name="userID">
+    <column id="265" parent="239" name="userID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="267" parent="239" name="username">
+    <column id="266" parent="239" name="username">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="268" parent="239" name="password">
+    <column id="267" parent="239" name="password">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="269" parent="239" name="date_created">
+    <column id="268" parent="239" name="date_created">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="270" parent="239" name="PRIMARY">
+    <key id="269" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userID</ColNames>
       <Primary>1</Primary>

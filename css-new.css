@@ -1,5 +1,5 @@
 body {
-    background-color: #4E4E4E;
+    background-color: #414141;
     text-align: center;         /* make sure IE centers the page too */
 }
 
@@ -60,7 +60,7 @@ table a:hover {
 }
 
 th {
-    background-color: #B40E1F;
+    background-color: #79EC80;
     color: #F0F0F0;
 }
 
