@@ -118,15 +118,15 @@ textarea {
 }
 .grid-container {
 	display: grid;
-	grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+	grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
 	grid-template-rows: 0.5fr 2fr 1fr;
-	gap: 0 0;
+	gap: 10px 10px;
 	grid-template-areas:
     "Logo . . Login"
     ". Catagories Catagories ."
     ". . . .";
 }
-.Catagories { grid-area: Catagories; background-color: #79EC80; border-radius: 25px}
-img {background-color: #4E4E4E; border-radius: 25px}
+.Catagories { grid-area: Catagories; background-color: #79EC80; border-radius: 25px;}
+img {background-color: #4E4E4E; border-radius: 25px;}
 .Login { grid-area: Login; }
 .Logo { grid-area: Logo; }
