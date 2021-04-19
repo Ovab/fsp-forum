@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<link rel="stylesheet" href="style.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,19 +9,17 @@
     <title>Ovab's forum</title>
 </head>
 <body>
-<h1></h1>
-<div id="wrapper">
     <div id="menu">
-        <a class="item" href="index.php">Home</a> -
-        <a class="item" href="create_topic.php">Create a topic</a> -
-        <a class="item" href="create_cat.php">Create a category</a>
+        <a class="item" href="/php-code/index.php">Home</a> -
+        <a class="item" href="/php-code/create_topic.php">Create a topic</a> -
+        <a class="item" href="/php-code/create_cat.php">Create a category</a>
         <?php
         session_start();
         if ($_SESSION['signed_in']==true){
-            echo "<a class='item' href='signout.php'>Sign out</a>";
+            echo "<a class='item' href='php-code/signout.php'>Sign out</a>";
         }
         else {
-            echo "<a class='item' href='signin.php'>Sign in</a>";
+            echo "<a class='item' href='php-code/signin.php'>Sign in</a>";
         }
         ?>
         <div class="grid-container">
