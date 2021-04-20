@@ -1,8 +1,8 @@
 <?php
 //create_cat.php
 include 'connect.php';
-include 'header.php';
-
+include '../header.php';
+echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
 $sql = "SELECT
 			fsp_forum.topics.Topic_id,
 			fsp_forum.topics.Topic_subject
@@ -29,7 +29,8 @@ else
 		{
 			//display post data
 
-			echo '<table class="topic" border="1">
+			echo '<h1>&nbsp</h1>
+                        <table class="topic" border="1">
 					<tr>
 						<th colspan="2">' . $row['Topic_subject'] . '</th>
 					</tr>';
@@ -92,5 +93,4 @@ else
 	}
 }
 
-include 'footer.php';
 ?>

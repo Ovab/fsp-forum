@@ -2,8 +2,261 @@
 	--padding-side-perc: 5%;
 	--site-color-theme: #79EC80;
 	--accent-color: #4E4E4E;
+
 }
-@media only screen and (min-width: 1200px) {
+/*Mobile site */
+body {
+		 background-color: #414141;
+		 text-align: center; /* make sure IE centers the page too */
+	 }
+
+#wrapper {
+	width: 100%;
+	margin: 0 auto; /* center the page */
+}
+
+#content {
+	background-color: #fff;
+	border: 1px solid #000;
+	font-family: "Comic Sans MS", sans-serif;
+	padding: 20px 30px;
+	text-align: left;
+	width: 100%; /* fill up the entire div */
+}
+
+#menu {
+	padding-top: 30px;;
+	float: left;
+	border: 1px solid #000;
+	border-bottom: none; /* avoid a double border */
+	clear: both; /* clear:both makes sure the content div doesn't float next to this one but stays under it */
+	width: 100%;
+	height: 80px;
+	background-color: var(--site-color-theme);
+	text-align: left;
+	font-size: 85%;
+}
+
+#menu a:hover {
+	background-color: #797777;
+}
+
+#userbar {
+	background-color: var(--site-color-theme);
+	float: right;
+	width: 250px;
+}
+
+#footer {
+	clear: both;
+}
+
+/* begin table styles */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table a {
+	color: #000;
+}
+
+table a:hover {
+	color: #373737;
+	text-decoration: none;
+}
+
+th {
+	background-color: #79EC80;
+	color: #F0F0F0;
+}
+
+td {
+	padding: 5px;
+}
+
+/* Begin font styles */
+h1, #footer {
+	font-family: "Comic Sans MS", sans-serif;
+	color: #F1F3F1;
+}
+
+h3 {
+	margin: 0;
+	padding: 0;
+}
+
+/* Menu styles */
+.item {
+	background-color: var(--accent-color);
+	border: 1px solid #032472;
+	color: #FFF;
+	font-family: "Comic Sans MS", sans-serif;
+	padding: 3px;
+	text-decoration: none;
+}
+
+.leftpart {
+	width: 70%;
+}
+
+.rightpart {
+	width: 30%;
+}
+
+.small {
+	font-size: 75%;
+	color: #373737;
+}
+
+#footer {
+	font-size: 65%;
+	padding: 3px 0 0 0;
+}
+
+.topic-post {
+	height: 100px;
+	overflow: auto;
+}
+
+.post-content {
+	padding: 30px;
+}
+
+textarea {
+	width: 500px;
+	height: 200px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+	grid-template-rows: 0.5fr 2fr 1fr;
+	gap: 10px 10px;
+	grid-template-areas:
+    "Logo . . Login"
+    ". Catagories Catagories ."
+    ". . . .";
+}
+
+.Catagories {
+	grid-area: Catagories;
+	border-radius: 25px;
+	padding-top: 1%;
+	padding-left: 1%;
+	margin-right: 36%
+}
+
+img {
+	background-color: #4E4E4E;
+	border-radius: 25px;
+	padding-top: calc(var(--padding-side-perc) / 2);
+	padding-bottom: calc(var(--padding-side-perc) / 2);
+	padding-left: var(--padding-side-perc);
+	padding-right: var(--padding-side-perc);
+
+}
+
+.Login {
+	grid-area: Login;
+}
+
+.Logo {
+	grid-area: Logo;
+}
+@media only screen and (min-width: 1280px) {
+	body {
+		background-color: #414141;
+		text-align: center; /* make sure IE centers the page too */
+	}
+
+	#wrapper {
+		width: 100%;
+		margin: 0 auto; /* center the page */
+	}
+
+
+	#menu {
+		border: 1px solid #000;
+		border-bottom: none; /* avoid a double border */
+		clear: both; /* clear:both makes sure the content div doesn't float next to this one but stays under it */
+		width: 100%;
+		height: 80px;
+		background-color: var(--site-color-theme);
+		text-align: left;
+		font-size: 85%;
+	}
+
+	#menu a:hover {
+		background-color: #797777;
+	}
+
+	#userbar {
+		background-color: var(--site-color-theme);
+		float: right;
+		width: 250px;
+	}
+
+	#footer {
+		clear: both;
+	}
+
+	/* Menu styles */
+	.item {
+		background-color: var(--accent-color);
+		border: 1px solid #032472;
+		color: #FFF;
+		font-family: "Comic Sans MS", sans-serif;
+		padding: 3px;
+		text-decoration: none;
+	}
+
+	#footer {
+		font-size: 65%;
+		padding: 3px 0 0 0;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+		grid-template-rows: 0.5fr 2fr 1fr;
+		gap: 10px 10px;
+		grid-template-areas:
+    "Logo . . Login"
+    ". Catagories Catagories ."
+    ". . . .";
+	}
+
+	.Catagories {
+		grid-area: Catagories;
+		background-color: #79EC80;
+		border-radius: 25px;
+		padding-top: 1%;
+		padding-left: 1%;
+		margin-right: 14%
+	}
+
+	img {
+		background-color: #4E4E4E;
+		border-radius: 25px;
+		padding-top: calc(var(--padding-side-perc) / 2);
+		padding-bottom: calc(var(--padding-side-perc) / 2);
+		padding-left: var(--padding-side-perc);
+		padding-right: var(--padding-side-perc);
+
+	}
+
+	.Login {
+		grid-area: Login;
+	}
+
+	.Logo {
+		grid-area: Logo;
+	}
+}
+
+/*Desktop 1050p site */
+@media only screen and (min-width: 1600px) {
 	body {
 		background-color: #414141;
 		text-align: center; /* make sure IE centers the page too */
@@ -24,20 +277,20 @@
 	}
 
 	#menu {
+		padding-top: 30px;;
 		float: left;
 		border: 1px solid #000;
 		border-bottom: none; /* avoid a double border */
 		clear: both; /* clear:both makes sure the content div doesn't float next to this one but stays under it */
 		width: 100%;
-		height: 20px;
-		padding: 0 30px;
-		background-color: #FFF;
+		height: 80px;
+		background-color: var(--site-color-theme);
 		text-align: left;
 		font-size: 85%;
 	}
 
 	#menu a:hover {
-		background-color: #009FC1;
+		background-color: #797777;
 	}
 
 	#userbar {
@@ -87,7 +340,7 @@
 
 	/* Menu styles */
 	.item {
-		background-color: #00728B;
+		background-color: var(--accent-color);
 		border: 1px solid #032472;
 		color: #FFF;
 		font-family: "Comic Sans MS", sans-serif;
@@ -165,8 +418,99 @@
 		grid-area: Logo;
 	}
 }
-
+/*Desktop 1080p site */
 @media only screen and (min-width: 1900px) {
+	body {
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden; //horizontal
+	overflow-y: scroll; //vertical
+	background-color: #414141;
+		text-align: center; /* make sure IE centers the page too */
+	}
+
+	#wrapper {
+		width: 95%;
+		margin: 0 auto; /* center the page */
+	}
+
+	#menu {
+		padding-top: 30px;;
+		float: left;
+		border: 1px solid #000;
+		border-bottom: none; /* avoid a double border */
+		clear: both; /* clear:both makes sure the content div doesn't float next to this one but stays under it */
+		width: 100%;
+		height: 80px;
+		background-color: var(--site-color-theme);
+		text-align: left;
+		font-size: 85%;
+	}
+
+	#menu a:hover {
+		background-color: #797777;
+	}
+	#userbar {
+		background-color: #fff;
+		float: right;
+		width: 250px;
+	}
+
+	#footer {
+		clear: both;
+	}
+	/* Begin font styles */
+	#footer {
+		font-family: "Comic Sans MS", sans-serif;
+		color: #F1F3F1;
+	}
+	/* Menu styles */
+	.item {
+		background-color: var(--accent-color);
+		border: 1px solid #032472;
+		color: #FFF;
+		font-family: "Comic Sans MS", sans-serif;
+		padding: 3px;
+		text-decoration: none;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: 2fr 1.5fr 1.5fr 1fr;
+		grid-template-rows: 0.5fr 2fr 1fr;
+		gap: 10px 10px;
+		grid-template-areas:
+    "Logo . . Login"
+    ". Catagories Catagories ."
+    ". . . .";
+	}
+
+	.Catagories {
+		grid-area: Catagories;
+		background-color: #79EC80;
+		border-radius: 25px;
+		margin-right: 25%
+	}
+
+	img {
+		background-color: #4E4E4E;
+		border-radius: 25px;
+		padding-top: calc(var(--padding-side-perc) / 2);
+		padding-bottom: calc(var(--padding-side-perc) / 2);
+		padding-left: calc(var(--padding-side-perc)*2);
+		padding-right: calc(var(--padding-side-perc)*2);
+	}
+
+	.Login {
+		grid-area: Login;
+	}
+
+	.Logo {
+		grid-area: Logo;
+	}
+}
+/*Deskop 1440p site */
+@media only screen and (min-width: 2500px) {
 	body {
 		margin: 0;
 		padding: 0;

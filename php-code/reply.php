@@ -38,6 +38,8 @@ else
 		}
 		else
 		{
+            $id=htmlentities($_GET['id']);
+		    header("location:topic.php?id=$id");
 			echo 'Your reply has been saved, check out <a href="topic.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
 		}
 	}

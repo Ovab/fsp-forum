@@ -1,7 +1,8 @@
 <?php
 //category.php
 include 'connect.php';
-include 'header.php';
+include '../header.php';
+echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
 
 //first select the category based on $_POST['cat_id']
 $id = ($_GET['id']);
@@ -30,7 +31,7 @@ else
 		//display category data
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo '<h2>Topics in &prime;' . $row['cat_name'] . '&prime; category</h2><br />';
+			echo '<h2>Topics in ' . $row['cat_name'] . ' category</h2><br />';
 		}
 	
 		//do a query for the topics
@@ -82,4 +83,3 @@ else
 	}
 }
 
-include 'footer.php';

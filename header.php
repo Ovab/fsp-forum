@@ -10,16 +10,17 @@
 </head>
 <body>
     <div id="menu">
-        <a class="item" href="/php-code/index.php">Home</a> -
-        <a class="item" href="/php-code/create_topic.php">Create a topic</a> -
-        <a class="item" href="/php-code/create_cat.php">Create a category</a>
+        <a class="item" href="/fsp-forum/index.php">Home</a> -
+        <a class="item" href="/fsp-forum/php-code/create_topic.php">Create a topic</a> -
+        <a class="item" href="/fsp-forum/php-code/create_cat.php">Create a category</a>
         <?php
+        error_reporting(E_ERROR | E_PARSE);
         session_start();
         if ($_SESSION['signed_in']==true){
-            echo "<a class='item' href='php-code/signout.php'>Sign out</a>";
+            echo "<a class='item' href='/fsp-forum/php-code/signout.php'>Sign out</a>";
         }
         else {
-            echo "<a class='item' href='php-code/signin.php'>Sign in</a>";
+            echo "<a class='item' href='/fsp-forum/php-code/signin.php'>Sign in</a>";
         }
         ?>
         <div class="grid-container">

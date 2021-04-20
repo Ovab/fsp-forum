@@ -1,8 +1,9 @@
 <?php
 //signin.php
 include 'connect.php';
-include 'header.php';
-echo '<h3>Sign in</h3>';
+include '../header.php';
+echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
+echo '<h1>Sign in</h1>';
 
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -83,15 +84,12 @@ else
                         $_SESSION['user_id'] = $row['userID'];
                         $_SESSION['user_name']  = $row['username'];
                         print_r($_SESSION);
-                        header('location: index.php');
+                        header('location: ../index.php');
                     }
 
                     echo 'Welcome, ' . $_SESSION['user_name'] . '</a>.';
-                    //header('location: index.php');
                     exit();
                 }
             }
         }
     }
-
-include 'footer.php';

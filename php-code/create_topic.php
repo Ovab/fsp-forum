@@ -1,9 +1,9 @@
 <?php
-session_start();
 //create_topic.php
 include 'connect.php';
-include 'header.php';
+include '../header.php';
 
+echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
 echo '<h2>Create a topic</h2>';
 if($_SESSION['signed_in'] == false)
 {
@@ -75,7 +75,7 @@ else
 			if(!$result)
 			{
 				//something went wrong, display the error
-				echo 'An error occured while inserting your data. Please try again later.<br /><br />' . mysqli_error($conn);
+				//echo 'An error occured while inserting your data. Please try again later.<br /><br />';
 				$sql = "ROLLBACK;";
 				$result = mysqli_query($conn, $sql);
 			}
@@ -116,5 +116,4 @@ else
 			}
 }
 
-include 'footer.php';
 ?>

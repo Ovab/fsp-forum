@@ -1,10 +1,20 @@
+:root{
+    --padding-side-perc: 5%;
+    --site-color-theme: #79EC80;
+    --accent-color: #4E4E4E;
+
+}
+
+input{
+    height: 50%;
+}
 body {
     background-color: #4E4E4E;
     text-align: center;         /* make sure IE centers the page too */
 }
 
 #wrapper {
-    width: 900px;
+    width: 100%;
     margin: 0 auto;             /* center the page */
 }
 
@@ -18,24 +28,24 @@ body {
 }
 
 #menu {
+    padding-top: 30px;;
     float: left;
     border: 1px solid #000;
-    border-bottom: none;        /* avoid a double border */
-    clear: both;                /* clear:both makes sure the content div doesn't float next to this one but stays under it */
-    width:100%;
-    height:20px;
-    padding: 0 30px;
-    background-color: #FFF;
+    border-bottom: none; /* avoid a double border */
+    clear: both; /* clear:both makes sure the content div doesn't float next to this one but stays under it */
+    width: 100%;
+    height: 80px;
+    background-color: var(--site-color-theme);
     text-align: left;
     font-size: 85%;
 }
 
 #menu a:hover {
-    background-color: #009FC1;
+    background-color: #797777;
 }
 
 #userbar {
-    background-color: #fff;
+    background-color: var(--site-color-theme);
     float: right;
     width: 250px;
 }
@@ -47,11 +57,12 @@ body {
 /* begin table styles */
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
 }
 
 table a {
-    color: #000;
+    text-decoration: none;
+    color: #F0F0F0
 }
 
 table a:hover {
@@ -60,11 +71,12 @@ table a:hover {
 }
 
 th {
-    background-color: #B40E1F;
-    color: #F0F0F0;
+    background-color: var(--site-color-theme);
+    color: #000000;
 }
 
 td {
+    color: #F0F0F0;
     padding: 5px;
 }
 
@@ -78,7 +90,7 @@ h3 {margin: 0; padding: 0;}
 
 /* Menu styles */
 .item {
-    background-color: #00728B;
+    background-color: var(--accent-color);
     border: 1px solid #032472;
     color: #FFF;
     font-family: "Comic Sans MS", sans-serif;
