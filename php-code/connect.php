@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Ovab2004";
 $database= 'fsp_forum';
 
 // Create connection
