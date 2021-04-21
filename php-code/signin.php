@@ -3,7 +3,9 @@
 include 'connect.php';
 include '../header.php';
 echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
-echo '<h1>Sign in</h1>';
+echo '<h1>Sign in</h1>
+<p style="color:red">Passwords are not encrypted so yea, maybe dont use your standard password</p>
+';
 
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
