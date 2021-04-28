@@ -1,8 +1,8 @@
 <?php
 //signup.php
 include "connect.php";
-include 'header.php';
-
+include '../header.php';
+echo '</div></div> <link rel="stylesheet" href="../css/css.css" type="text/css">';
 echo '<h3>Sign up</h3>';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
@@ -69,8 +69,8 @@ else
     {
         //the form has been posted without, so save it
         //notice the use of mysql_real_escape_string, keep everything safe!
-        //also notice the sha1 function which hashes the password
-        $sql = "INSERT INTO users(username, password, date_created) VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "', '" . $_POST['user_pass'] . "', NOW())";
+        $hashed_pass= password_hash($_POST['user_pass'], PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users(username, password, date_created) VALUES('" . mysqli_real_escape_string($conn,$_POST['user_name']) . "', '" . $hashed_pass . "', NOW())";
 
         $result = mysqli_query($conn,$sql);
         if(!$result)
